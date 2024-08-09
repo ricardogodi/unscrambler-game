@@ -376,46 +376,6 @@ bool checkWin (vector<char> const &manipulatedBoard, vector<char> const &unscram
     }
     return true;            // If we made it through the entire vector, then manipulatedBoard and unscrambledBoard are equal. Thus, return true
 }
-/*
-bool solveBoardRecursive(vector<char>& currentBoard, const vector<char>& completedBoard, int boardSize, int maxDepth, int currentDepth = 0) {
-    // Output the current depth and the current board state
-    cout << "Current depth: " << currentDepth << ", Board: ";
-    displayBoardInOneLine(currentBoard);
-
-    // Base case: check if the current board matches the completed board
-    if (currentBoard == completedBoard) {
-        cout << "Solution found at depth " << currentDepth << endl;
-        return true;
-    }
-
-    // Base case: if max depth is reached, stop recursion
-    if (currentDepth >= maxDepth) {
-        return false;
-    }
-
-    // Reverse the column rotations first (undo the downward rotation in scrambling)
-    for (int col = 0; col < boardSize; col++) {
-        vector<char> tempBoard = currentBoard;
-        rotateCol(tempBoard, boardSize, col, -1); // Rotate up
-        if (solveBoardRecursive(tempBoard, completedBoard, boardSize, maxDepth, currentDepth + 1)) {
-            currentBoard = tempBoard; // Update current board with the solution
-            return true;
-        }
-    }
-
-    // Reverse the row rotations next (undo the right rotation in scrambling)
-    for (int row = 0; row < boardSize; row++) {
-        vector<char> tempBoard = currentBoard;
-        rotateRow(tempBoard, boardSize, row, -1); // Rotate left
-        if (solveBoardRecursive(tempBoard, completedBoard, boardSize, maxDepth, currentDepth + 1)) {
-            currentBoard = tempBoard;
-            return true;
-        }
-    }
-
-    // If no solution found, return false
-    return false;
-}*/
 
 bool solveBoardRecursive(vector<char>& currentBoard, const vector<char>& completedBoard, int boardSize, int maxDepth, int currentDepth, int& iterations) {
     iterations++;
