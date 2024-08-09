@@ -1,8 +1,8 @@
-all:
-	g++ -std=c++11 -o program main.cpp ContiguousSequence.cpp
+unscrambler: main.o
+	g++ -o unscrambler main.o
 
-run:
-	./program
+main.o: main.cpp
+	g++ -c main.cpp
 
 clean:
-	rm program
+	rm -f unscrambler main.o
